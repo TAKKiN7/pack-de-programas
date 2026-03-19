@@ -12,3 +12,8 @@ env/
 # IDEs / editores
 .vscode/
 .idea/
+
+
+# Pastas desnecessárias
+
+**/Instaladores/
