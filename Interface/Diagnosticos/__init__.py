@@ -166,4 +166,4 @@ class DiagnosticosFrame(CTkFrame):
 
     def baixar(self, nome_exe=None):
         caminho = downloader.baixar(nome=nome_exe)
-        #downloader.executar(caminho)
+        downloader.executar(caminho)

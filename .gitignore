@@ -17,3 +17,10 @@ env/
 # Pastas desnecessárias
 
 **/Instaladores/
+
+
+**.spec
+
+**/build/
+**/dist/
+
