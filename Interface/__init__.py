@@ -16,7 +16,7 @@ class App(CTk):
     def config(self):
         self.overrideredirect(True)
 
-        self.title(" " * 110 + "PACK DE PROGRAMAS")
+        self.title("PACK DE PROGRAMAS")
         self.iconbitmap(self.caminho / "logo/Logo.ico")
 
         largura = 450
@@ -39,7 +39,7 @@ class App(CTk):
 
 
     def fundo(self):
-        img = Image.open(self.caminho / "Inicio/fundo_inicial2.png")
+        img = Image.open(self.caminho / "Inicio/fundo.png")
         imagem = CTkImage(img, size=(450, 300))
         imagemL = CTkLabel(self, text="", image=imagem)
 

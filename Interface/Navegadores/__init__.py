@@ -61,7 +61,7 @@ class NavegadoresFrame(CTkFrame):
         self.chorme_button.bind("<Enter>", lambda event: self.button_selected(event, self.chorme_button, imagem_selected))
         self.chorme_button.bind("<Leave>", lambda event: self.button_normal(event, self.chorme_button, imagem_normal))
 
-        self.chorme_button.place(relx=.02, rely=.1, relwidth=.155, relheight=.06)
+        self.chorme_button.place(relx=.16, rely=.87, relwidth=.155, relheight=.06)
     
 
     def button_opera(self):
@@ -77,7 +77,7 @@ class NavegadoresFrame(CTkFrame):
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
-        chrome_button.place(relx=.02, rely=.17, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.34, rely=.87, relwidth=.155, relheight=.06)
     
 
     def button_firefox(self):
@@ -93,7 +93,7 @@ class NavegadoresFrame(CTkFrame):
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
-        chrome_button.place(relx=.02, rely=.24, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.51, rely=.87, relwidth=.155, relheight=.06)
 
 
     def button_brave(self):
@@ -109,9 +109,7 @@ class NavegadoresFrame(CTkFrame):
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
-        chrome_button.place(relx=.02, rely=.31, relwidth=.155, relheight=.06)
-
-    
+        chrome_button.place(relx=.68, rely=.87, relwidth=.155, relheight=.06)
 
     
 
@@ -131,10 +129,9 @@ class NavegadoresFrame(CTkFrame):
     
 
     
-
     def baixar(self, nome_exe=None):
         caminho = downloader.baixar(nome=nome_exe)
-        downloader.executar(caminho)
+        #downloader.executar(caminho)
 
     
     def fechar(self):

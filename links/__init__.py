@@ -20,6 +20,8 @@ links = {
     "java_x64" : "https://www.dropbox.com/scl/fi/4b0c6h54zftch4g7bcysu/Java_8_V481x64.exe?rlkey=1icuvyua04nu4m953o5pxuxp6&st=75rr2rqy&dl=1",
     "java_x86" : "https://www.dropbox.com/scl/fi/gbkzc5c5q8r1mbhw0amlm/Java_8_V481x86.exe?rlkey=uv38t28tri86h2x8axcswe2bo&st=1va3ugkj&dl=1",
     "jdk_16_x64" : "https://www.dropbox.com/scl/fi/2e3gv6s2ns1cts1yeuggb/Jdk_16_x64.exe?rlkey=ho1ast37l94qkutrcp54ihese&st=w49z7usj&dl=1",
+    "visual_c" : "https://www.dropbox.com/scl/fi/jtujdro1wz6qwpx712yze/Microsoft_Visual_C-_Run_Times.exe?rlkey=54rf93miohahs0vy7wiryd9vg&st=5g06jdqe&dl=1",
+    "python" : "https://www.dropbox.com/scl/fi/tj1lklq4kihhqv7aki6ar/Python_V3139.exe?rlkey=zfe193lhjmsumc0hfco6wnbjl&st=ebl3qu28&dl=1",
 
 # Diagnostico
     # Crystal Disk (Tem que ver isso ai)
@@ -67,7 +69,7 @@ links = {
 
     "ccleaner" : "https://www.dropbox.com/scl/fi/c0wyk79ze329f73bfm62m/C_Cleaner_V620.exe?rlkey=fxn0ijwn3n3pjmfa7qhxb2f91&st=rpupy68a&dl=1",
     "recuva" : "https://www.dropbox.com/scl/fi/qkwpiem3ob0bdjqci3bou/Recuva_V154.exe?rlkey=gl0bxgyrcmfon8pfwm6yjbfy8&st=j4ns9pw5&dl=1",
-    "utorrent" : "https://www.dropbox.com/scl/fi/7vrbif6lrsri7i8dd6lz3/Utorrent.exe?rlkey=haj2snop58g6sxn2wa08n70wu&st=j2uzkuj9&dl=1",
+    "utorrent" : "https://www.dropbox.com/scl/fi/7vrbif6lrsri7i8dd6lz3/Utorrent.exe?rlkey=haj2snop58g6sxn2wa08n70wu&st=rp7mmmdr&dl=1",
 
 # VPS
     "exit_lag" : "https://www.dropbox.com/scl/fi/mlc26mk5x1p2d0mmqt3kb/ExitLag_V5193_x64.exe?rlkey=p4da53s84tl26upq4eokurwhb&st=2vm4afjb&dl=1",
@@ -76,7 +78,7 @@ links = {
     "zero_tier" : "https://www.dropbox.com/scl/fi/rumlo9szlf1awi78kaaqo/ZeroTier_One.msi?rlkey=tfg676ghbxilc2gc7td4iy38b&st=j2fwmtxz&dl=1",
 
 # Zip
-    "7z_x32" : "https://www.dropbox.com/scl/fi/8xpu6599sewhoq32ne4dy/7z_x32_V2600.exe?rlkey=hpt005xysfz3q5ztfofe2ginm&st=8fwcqaox&dl=1",
+    "7z_x86" : "https://www.dropbox.com/scl/fi/8xpu6599sewhoq32ne4dy/7z_x32_V2600.exe?rlkey=hpt005xysfz3q5ztfofe2ginm&st=8fwcqaox&dl=1",
     "7z_x64" : "https://www.dropbox.com/scl/fi/sedikpvljpm58mlo3et8r/7z_x64_V2600.exe?rlkey=mi9hyv89imoa6o0ufw035p7ue&st=n1kj9y4c&dl=1",
     "winrar_x86" : "https://www.dropbox.com/scl/fi/qcgmgrp90itqy2yaczx90/Winrar_x32_V624.exe?rlkey=8q1webr9vkne3ui1qim5rpany&st=24apw8ab&dl=1",
     "winrar_x64" : "https://www.dropbox.com/scl/fi/rwtwklhbeobmjpa1vkapy/Winrar_x64_V720.exe?rlkey=9rc87zpp4wlcsko2wb4ysjvlp&st=lcmek89g&dl=1",

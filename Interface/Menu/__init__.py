@@ -3,6 +3,16 @@ from PIL import Image
 from pathlib import Path
 from Interface.Navegadores import NavegadoresFrame
 from Interface.Antivirus import AntivirusFrame
+from Interface.Codec import CodecFrame
+from Interface.Comunicacao import ComunicacaoFrame
+from Interface.Lojas import LojasFrame
+from Interface.Diagnosticos import DiagnosticosFrame
+from Interface.Drivers import DriversFrame
+from Interface.Office import OfficeFrame
+from Interface.Zip import ZipFrame
+from Interface.Dependencias import DependenciasFrame
+from Interface.Utilitarios import UtilitariosFrame
+from Interface.VPN import VPNFrame
 
 
 class Menu(CTkFrame):
@@ -29,6 +39,7 @@ class Menu(CTkFrame):
         self.button_lojas()
         self.button_utils()
         self.button_vpn()
+        self.button_zip()
         self.button_ativacao()
 
 
@@ -37,7 +48,7 @@ class Menu(CTkFrame):
 
 
     def fundo(self):
-        img = Image.open(self.caminho_imagens / "fundo2.png")
+        img = Image.open(self.caminho_imagens / "fundo.png")
         imagem = CTkImage(img, size=(900, 600))
         imagemL = CTkLabel(self, text="", image=imagem)
 
@@ -62,7 +73,7 @@ class Menu(CTkFrame):
 
 
     def aba_antivirus(self):
-        pass
+        antivirus_frame : AntivirusFrame = AntivirusFrame(self)
 
 
 
@@ -74,13 +85,16 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#B33436", hover_color="#B33436", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_codec)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
         chrome_button.place(relx=.02, rely=.17, relwidth=.155, relheight=.06)
     
+
+    def aba_codec(self):
+        codec_frame : CodecFrame = CodecFrame(self)
 
     def button_comunicacao(self):
         img_normal = Image.open(self.caminho_imagens / "comunicacao_normal.png")
@@ -90,12 +104,16 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#D9D9D9", hover_color="#D9D9D9", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_comunicacao)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
         chrome_button.place(relx=.02, rely=.24, relwidth=.155, relheight=.06)
+    
+
+    def aba_comunicacao(self):
+        comu_frame : ComunicacaoFrame = ComunicacaoFrame(self)
     
 
     def button_navegadores(self):
@@ -125,12 +143,16 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#C7C7C7", hover_color="#C7C7C7", corner_radius=0, border_color="BLACK", bg_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_depends)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
         chrome_button.place(relx=.02, rely=.38, relwidth=.155, relheight=.06)
+    
+
+    def aba_depends(self):
+        depends_frame : DependenciasFrame = DependenciasFrame(self)
     
 
 
@@ -142,12 +164,16 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#FF5353", hover_color="#FF5353", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_office)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
         chrome_button.place(relx=.02, rely=.45, relwidth=.155, relheight=.06)
+
+    
+    def aba_office(self):
+        office_frame : OfficeFrame = OfficeFrame(self)
 
 
     
@@ -159,13 +185,16 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#AFBE3F", hover_color="#AFBE3F", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_diagnosticos)
         
-        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
-        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
 
-        chrome_button.place(relx=.02, rely=.52, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.825, rely=.1, relwidth=.155, relheight=.06)
     
+
+    def aba_diagnosticos(self):
+        diagnosticos_frame : DiagnosticosFrame = DiagnosticosFrame(self)
 
 
     def button_drivers(self):
@@ -176,13 +205,17 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#D9D9D9", hover_color="#D9D9D9", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_drivers)
         
-        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
-        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
 
-        chrome_button.place(relx=.02, rely=.59, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.825, rely=.17, relwidth=.155, relheight=.06)
     
+
+    def aba_drivers(self):
+        drivers_frame : DriversFrame = DriversFrame(self)
+
 
     def button_lojas(self):
         img_normal = Image.open(self.caminho_imagens / "lojas_normal.png")
@@ -192,15 +225,17 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#F0CA2F", hover_color="#F0CA2F", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_jogos)
         
-        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
-        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
 
-        chrome_button.place(relx=.02, rely=.66, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.825, rely=.24, relwidth=.155, relheight=.06)
     
 
-   
+    
+    def aba_jogos(self):
+        jogos_frame : LojasFrame = LojasFrame(self)
     
 
     def button_utils(self):
@@ -211,13 +246,17 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#4E28C0", hover_color="#4E28C0", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_utils)
         
-        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
-        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
 
-        chrome_button.place(relx=.02, rely=.73, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.825, rely=.31, relwidth=.155, relheight=.06)
 
+
+
+    def aba_utils(self):
+        utils_frame : UtilitariosFrame = UtilitariosFrame(self)
     
     def button_vpn(self):
         img_normal = Image.open(self.caminho_imagens / "vpn_normal.png")
@@ -227,13 +266,35 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#C7C7C7", hover_color="#C7C7C7", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_vpn)
         
-        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
-        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
 
-        chrome_button.place(relx=.02, rely=.8, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.825, rely=.38, relwidth=.155, relheight=.06)
     
+    def aba_vpn(self):
+        vpn_frame : VPNFrame = VPNFrame(self)
+    
+
+    def button_zip(self):
+        img_normal = Image.open(self.caminho_imagens / "zip_normal.png")
+        imagem_normal = CTkImage(img_normal, size=(130, 36))
+
+        img_selected = Image.open(self.caminho_imagens / "zip_selected.png")
+        imagem_selected = CTkImage(img_selected, size=(130, 36))
+
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#C266D9", hover_color="#C266D9", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
+                                              command=self.aba_zip)
+        
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
+
+        chrome_button.place(relx=.825, rely=.45, relwidth=.155, relheight=.06)
+    
+    def aba_zip(self):
+        zip_frame : ZipFrame = ZipFrame(self)
+
 
     def button_ativacao(self):
         img_normal = Image.open(self.caminho_imagens / "ativacao_normal.png")
@@ -248,7 +309,7 @@ class Menu(CTkFrame):
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita = True))
 
-        chrome_button.place(relx=.825, rely=.8, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.825, rely=.87, relwidth=.155, relheight=.06)
 
 
 
