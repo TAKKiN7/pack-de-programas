@@ -2,26 +2,29 @@ from customtkinter import CTk, CTkFrame, CTkButton, CTkLabel, CTkImage
 from pathlib import Path
 from PIL import Image
 from services import downloader
+from tkinter import messagebox as msg
 
 
-class CodecFrame(CTkFrame):
+
+class AtivacaoFrame(CTkFrame):
     def __init__(self, master : CTk):
         super().__init__(master, fg_color="BLACK")
-        self.caminho : Path = Path.cwd() / "Imagens/Codec"
+        self.caminho : Path = Path.cwd() / "Imagens/Ativacao"
         self.layout()
     
 
     def layout(self):
         self.fundo()
         self.button_voltar()
-        self.button_vlc()
-        self.button_k_lite()
-        self.button_quick()
+        #self.button_reloader()
+        self.button_mas()
+        #self.button_toolkit()
+
 
         self.place(relx=0, rely=0, relwidth=1, relheight=1)
 
     def fundo(self):
-        img = Image.open(self.caminho / "codec_fundo.png")
+        img = Image.open(self.caminho / "fundo.png")
         imagem = CTkImage(img, size=(900, 600))
         imagemL = CTkLabel(self, text="", image=imagem)
 
@@ -44,57 +47,59 @@ class CodecFrame(CTkFrame):
         chrome_button.place(relx=.02, rely=.03, relwidth=.155, relheight=.06)
     
 
-    def button_vlc(self):
-        img_normal = Image.open(self.caminho / "vlc_normal.png")
+    def button_reloader(self):
+        img_normal = Image.open(self.caminho / "reloader_normal.png")
         imagem_normal = CTkImage(img_normal, size=(130, 36))
 
-        img_selected = Image.open(self.caminho / "vlc_selected.png")
+        img_selected = Image.open(self.caminho / "reloader_selected.png")
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
-        self.chorme_button : CTkButton = CTkButton(self, text="", fg_color="#EFB572", hover_color="#EFB572", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("vlc"))
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#7D7D76", hover_color="#7D7D76", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
+                                              command=lambda: self.baixar("Windows_Loader", zip=True))
         
-        self.chorme_button.bind("<Enter>", lambda event: self.button_selected(event, self.chorme_button, imagem_selected))
-        self.chorme_button.bind("<Leave>", lambda event: self.button_normal(event, self.chorme_button, imagem_normal))
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
-        self.chorme_button.place(relx=.02, rely=.3, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.16, rely=.87, relwidth=.155, relheight=.06)
     
 
-
-    def button_k_lite(self):
-        img_normal = Image.open(self.caminho / "klite_normal.png")
+    def button_mas(self):
+        img_normal = Image.open(self.caminho / "mas_normal.png")
         imagem_normal = CTkImage(img_normal, size=(130, 36))
 
-        img_selected = Image.open(self.caminho / "klite_selected.png")
+        img_selected = Image.open(self.caminho / "mas_selected.png")
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
-        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#575FEF", hover_color="#575FEF", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda: self.baixar("k_lite"))
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#64A73B", hover_color="#64A73B", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
+                                              command=downloader.ativar_win10)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
-        chrome_button.place(relx=.02, rely=.37, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.34, rely=.87, relwidth=.155, relheight=.06)
+    
 
-    def button_quick(self):
-        img_normal = Image.open(self.caminho / "quick_normal.png")
+    def button_toolkit(self):
+        img_normal = Image.open(self.caminho / "toolkit_normal.png")
         imagem_normal = CTkImage(img_normal, size=(130, 36))
 
-        img_selected = Image.open(self.caminho / "quick_selected.png")
+        img_selected = Image.open(self.caminho / "toolkit_selected.png")
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
-        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#9C9FCE", hover_color="#9C9FCE", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda: self.baixar("quick_time"))
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#DADA5C", hover_color="#DADA5C", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
+                                              command=self.antivirus_info)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
 
-        chrome_button.place(relx=.02, rely=.44, relwidth=.155, relheight=.06)
+        chrome_button.place(relx=.52, rely=.87, relwidth=.155, relheight=.06)
+    
 
+    
 
+    
     def fechar(self):
         self.destroy()
-
 
 
     def button_selected(self, event,  button : CTkButton, imagem : CTkImage, direita = False):
@@ -110,8 +115,13 @@ class CodecFrame(CTkFrame):
             button.place(relwidth=.155, relx=.825)
             return
         button.place(relwidth=.155)
+    
+
+    def baixar(self, nome_exe=None, zip=False):
+        caminho = downloader.baixar(nome=nome_exe, zip=zip)
+        downloader.executar(caminho, zip=zip)
 
     
-    def baixar(self, nome_exe=None):
-        caminho = downloader.baixar(nome=nome_exe)
-        downloader.executar(caminho)
+
+    def antivirus_info(self):
+        msg.showwarning("Aviso", "Desative o antivírus antes de executar esse ativador")

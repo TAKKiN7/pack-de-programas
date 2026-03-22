@@ -54,7 +54,7 @@ class VPNFrame(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#55E0FF", hover_color="#55E0FF", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda:self.baixar("hamachi"))
+                                              command=lambda:self.baixar("hamachi", zip=True))
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
@@ -87,7 +87,7 @@ class VPNFrame(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#7B619E", hover_color="#7B619E", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=lambda:self.baixar("zero_tier"))
+                                              command=lambda:self.baixar("zero_tier", zip=True))
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
@@ -132,6 +132,6 @@ class VPNFrame(CTkFrame):
         button.place(relwidth=.155)
     
 
-    def baixar(self, nome_exe=None):
-        caminho = downloader.baixar(nome=nome_exe)
-        downloader.executar(caminho)
+    def baixar(self, nome_exe=None, zip=False):
+        caminho = downloader.baixar(nome=nome_exe, zip=zip)
+        downloader.executar(caminho, zip=zip)

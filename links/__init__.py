@@ -24,7 +24,8 @@ links = {
     "python" : "https://www.dropbox.com/scl/fi/tj1lklq4kihhqv7aki6ar/Python_V3139.exe?rlkey=zfe193lhjmsumc0hfco6wnbjl&st=ebl3qu28&dl=1",
 
 # Diagnostico
-    # Crystal Disk (Tem que ver isso ai)
+    "DiskMark64" : "https://www.dropbox.com/scl/fo/ur24wh7pa1lo10c6jo539/AH4KQaej0C6k1qyGzLUXPtk?rlkey=tf8p1jl76sje7mso1mji54105&st=29nd5cd6&dl=1",
+    "DiskMark32" : "https://www.dropbox.com/scl/fo/7a7r4cd7oo59zbb5yedv8/AF8vNIpvzuM7rvy8hmho1-o?rlkey=9m20iwyu2rfp27shqzp30btfy&st=0zzm1qbv&dl=1",
     "aida64" : "https://www.dropbox.com/scl/fi/fucna9ojdyb8e4bjs2x9t/AIDA-64.exe?rlkey=omm0fto9wesadjv2pap9sy600&st=jseq85mk&dl=1",
     "cpu_z" : "https://www.dropbox.com/scl/fi/ebm83bge4e6japcd9l8fi/cpu-z_1.81-en.exe?rlkey=fbi7clay8gxkvtflu01x5tfxy&st=m0lf529u&dl=1",
     "fur_mark" : "https://www.dropbox.com/scl/fi/9v1ketvbg8x3a5dut6r4z/FurMark_1.37.2.0_Setup.exe?rlkey=oq4810rcjekrs6pawxt71h51n&st=e48fulmo&dl=1",
@@ -69,13 +70,13 @@ links = {
 
     "ccleaner" : "https://www.dropbox.com/scl/fi/c0wyk79ze329f73bfm62m/C_Cleaner_V620.exe?rlkey=fxn0ijwn3n3pjmfa7qhxb2f91&st=rpupy68a&dl=1",
     "recuva" : "https://www.dropbox.com/scl/fi/qkwpiem3ob0bdjqci3bou/Recuva_V154.exe?rlkey=gl0bxgyrcmfon8pfwm6yjbfy8&st=j4ns9pw5&dl=1",
-    "utorrent" : "https://www.dropbox.com/scl/fi/7vrbif6lrsri7i8dd6lz3/Utorrent.exe?rlkey=haj2snop58g6sxn2wa08n70wu&st=rp7mmmdr&dl=1",
+    "utorrent" : "https://www.dropbox.com/scl/fi/zj37yla03owe1xandw2va/utorrent.zip?rlkey=jsw9dj9f4c4dg3mivguoa61hp&st=s589lten&dl=1",
 
 # VPS
     "exit_lag" : "https://www.dropbox.com/scl/fi/mlc26mk5x1p2d0mmqt3kb/ExitLag_V5193_x64.exe?rlkey=p4da53s84tl26upq4eokurwhb&st=2vm4afjb&dl=1",
-    "hamachi" : "https://www.dropbox.com/scl/fi/mi8eoqz3so6dzbt8sw4kl/Hamachi.msi?rlkey=ufxfqrsk2ucgumfzcj4ymmqsv&st=0xj04ykk&dl=1",
+    "hamachi" : "https://www.dropbox.com/scl/fi/ejf83u8zcmsmnotyed78y/hamachi.zip?rlkey=vczu4f5md0etyyr7j5bmoucq0&st=spbk9llc&dl=1",
     "radmin" : "https://www.dropbox.com/scl/fi/ojeano42yhh0yvprdvxb7/Radmin_VPN_V2048999.exe?rlkey=laqxg0rhh6ah3t8p6x2n2i0zb&st=jfv641te&dl=1",
-    "zero_tier" : "https://www.dropbox.com/scl/fi/rumlo9szlf1awi78kaaqo/ZeroTier_One.msi?rlkey=tfg676ghbxilc2gc7td4iy38b&st=j2fwmtxz&dl=1",
+    "zero_tier" : "https://www.dropbox.com/scl/fi/ap1wkq4c90ayixa2ywlrr/zero-tier.zip?rlkey=x6lvyfjtag80p91v19cqozn1o&st=57nta4bc&dl=1",
 
 # Zip
     "7z_x86" : "https://www.dropbox.com/scl/fi/8xpu6599sewhoq32ne4dy/7z_x32_V2600.exe?rlkey=hpt005xysfz3q5ztfofe2ginm&st=8fwcqaox&dl=1",

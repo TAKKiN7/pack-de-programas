@@ -4,6 +4,10 @@ import subprocess
 from links import links
 from math import trunc
 from colorama import Fore
+import zipfile
+from tkinter import messagebox as msg
+
+
 
 # caminho : Path = Path.cwd() / "Instaladores"
 # caminho.mkdir(exist_ok=True)
@@ -32,9 +36,12 @@ class Download:
         self.caminho : Path = Path.cwd() / "Instaladores"
 
 
-    def baixar(self, nome):
+    def baixar(self, nome, zip = False):
         link = links.get(nome)
-        nome_exe : Path = Path(f"{nome.replace("_", " ")}.exe")
+        if not zip:
+            nome_exe : Path = Path(f"{nome.replace("_", " ")}.exe")
+        else:
+            nome_exe : Path = Path(f"{nome.replace("_", " ")}.zip")
         caminho_exe = self.caminho / nome_exe
 
         exe : Path = Path(caminho_exe)
@@ -57,8 +64,33 @@ class Download:
             print(f"\r{trunc(porcentagem)}%", end="")
 
     
-    def executar(self, caminho_exe):
-        subprocess.run([caminho_exe])
+    def executar(self, caminho_exe=None, zip=False):
+        if zip:
+            with zipfile.ZipFile(caminho_exe, "r") as zip:
+                zip.extractall(self.caminho)
+        
+            caminho_txt = str(caminho_exe)
+            caminho_novo = caminho_txt.replace("zip", "exe")
+            caminho_exe : Path = Path(caminho_novo)
+
+        try:
+            subprocess.run([caminho_exe])
+        except FileNotFoundError:
+            try:
+                caminho_txt = str(caminho_exe)
+                caminho_novo = caminho_txt.replace("exe", "msi")
+                caminho_exe : Path = Path(caminho_novo)
+                print(caminho_novo)
+                print(caminho_exe)
+                subprocess.run(["msiexec", "/i", caminho_exe])
+            except FileNotFoundError:
+                msg.showwarning("Erro", "Arquivo não encontrado!")
+
+            
+
+    def ativar_win10(self):
+        txt : str = "irm https://get.activated.win | iex"
+        subprocess.run(["powershell", "-Command", txt])
 
 
 downloader : Download = Download()

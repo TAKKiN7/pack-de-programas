@@ -13,6 +13,7 @@ from Interface.Zip import ZipFrame
 from Interface.Dependencias import DependenciasFrame
 from Interface.Utilitarios import UtilitariosFrame
 from Interface.VPN import VPNFrame
+from Interface.Ativacao import AtivacaoFrame
 
 
 class Menu(CTkFrame):
@@ -304,7 +305,7 @@ class Menu(CTkFrame):
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
         chrome_button : CTkButton = CTkButton(self, text="", fg_color="#FFA82F", hover_color="#FFA82F", corner_radius=0, border_color="BLACK", border_width=2, bg_color="BLACK", image=imagem_normal,
-                                              command=lambda: self.baixar("brave"))
+                                              command=self.aba_ativacao)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita = True))
@@ -312,6 +313,8 @@ class Menu(CTkFrame):
         chrome_button.place(relx=.825, rely=.87, relwidth=.155, relheight=.06)
 
 
+    def aba_ativacao(self):
+        ativacao_frame : AtivacaoFrame = AtivacaoFrame(self)
 
 
     def button_selected(self, event,  button : CTkButton, imagem : CTkImage, direita = False):

@@ -20,6 +20,8 @@ class DiagnosticosFrame(CTkFrame):
         self.button_furmark()
         self.button_msi()
         self.button_hd()
+        self.button_crystal_x64()
+        self.button_crystal_x86()
 
         self.place(relx=0, rely=0, relwidth=1, relheight=1)
 
@@ -129,6 +131,39 @@ class DiagnosticosFrame(CTkFrame):
         chrome_button.place(relx=.825, rely=.27, relwidth=.155, relheight=.06)
     
 
+    def button_crystal_x64(self):
+        img_normal = Image.open(self.caminho / "crystal_x64_normal.png")
+        imagem_normal = CTkImage(img_normal, size=(130, 36))
+
+        img_selected = Image.open(self.caminho / "crystal_x64_selected.png")
+        imagem_selected = CTkImage(img_selected, size=(130, 36))
+
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#6A8CFB", hover_color="#6A8CFB", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
+                                              command=lambda: self.baixar("DiskMark64", zip=True))
+        
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
+
+        chrome_button.place(relx=.825, rely=.41, relwidth=.155, relheight=.06)
+    
+
+    def button_crystal_x86(self):
+        img_normal = Image.open(self.caminho / "crystal_x86_normal.png")
+        imagem_normal = CTkImage(img_normal, size=(130, 36))
+
+        img_selected = Image.open(self.caminho / "crystal_x86_selected.png")
+        imagem_selected = CTkImage(img_selected, size=(130, 36))
+
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#6A8CFB", hover_color="#6A8CFB", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
+                                              command=lambda: self.baixar("DiskMark32", zip=True))
+        
+        chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected, direita=True))
+        chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal, direita=True))
+
+        chrome_button.place(relx=.825, rely=.48, relwidth=.155, relheight=.06)
+    
+
+
     def button_hd(self):
         img_normal = Image.open(self.caminho / "hd_normal.png")
         imagem_normal = CTkImage(img_normal, size=(130, 36))
@@ -164,6 +199,6 @@ class DiagnosticosFrame(CTkFrame):
         button.place(relwidth=.155)
     
 
-    def baixar(self, nome_exe=None):
-        caminho = downloader.baixar(nome=nome_exe)
-        downloader.executar(caminho)
+    def baixar(self, nome_exe=None, zip=False):
+        caminho = downloader.baixar(nome=nome_exe, zip=zip)
+        downloader.executar(caminho, zip=zip)
