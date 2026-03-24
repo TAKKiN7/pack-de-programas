@@ -1,4 +1,5 @@
-from customtkinter import CTk, CTkFrame, CTkButton, CTkLabel, CTkImage
+from customtkinter import CTk, CTkFrame, CTkButton, CTkLabel, CTkImage, CTkProgressBar
+from threading import Thread
 from pathlib import Path
 from PIL import Image
 from services import downloader
@@ -170,6 +171,25 @@ class UtilitariosFrame(CTkFrame):
         button.place(relwidth=.155)
     
 
-    def baixar(self, nome_exe=None, zip=False):
-        caminho = downloader.baixar(nome=nome_exe, zip=zip)
+    def baixar2(self, nome_exe=None, label : CTkLabel = None, zip = None):
+
+        caminho = downloader.baixar(nome=nome_exe, progresso=label, zip=zip)
+
+        label.place_forget()
+
         downloader.executar(caminho, zip=zip)
+
+
+
+    def baixar(self, nome_exe=None, zip=False):
+        
+  
+        progressoL : CTkProgressBar = CTkProgressBar(self, mode="determinate", fg_color="BLACK", bg_color="BLACK", border_color="WHITE", border_width=2,
+                                                     progress_color="GREEN")
+        progressoL.set(0)
+        progressoL.place(relx=.0, rely=.97, relwidth=1, relheight=.03)
+
+
+
+        thread = Thread(target=self.baixar2, args=(nome_exe, progressoL, zip))
+        thread.start()

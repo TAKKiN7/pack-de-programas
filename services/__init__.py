@@ -6,8 +6,7 @@ from math import trunc
 from colorama import Fore
 import zipfile
 from tkinter import messagebox as msg
-
-
+from customtkinter import CTkProgressBar
 
 # caminho : Path = Path.cwd() / "Instaladores"
 # caminho.mkdir(exist_ok=True)
@@ -36,7 +35,7 @@ class Download:
         self.caminho : Path = Path.cwd() / "Instaladores"
 
 
-    def baixar(self, nome, zip = False):
+    def baixar(self, nome, zip = False, progresso : CTkProgressBar = None):
         link = links.get(nome)
         if not zip:
             nome_exe : Path = Path(f"{nome.replace("_", " ")}.exe")
@@ -52,16 +51,17 @@ class Download:
             return caminho_exe
 
         print("Iniciando download")
-        urllib.request.urlretrieve(link, caminho_exe, reporthook=self.progresso)
+        urllib.request.urlretrieve(link, caminho_exe, reporthook=lambda b_baixados, tamanho_b, tamanho_t: self.progresso(b_baixados, tamanho_b, tamanho_t, progresso))
         print(self.cores["g"], "\nDownload concluido", self.cores["reset"])
 
         return caminho_exe
 
-    def progresso(self, b_baixados, tamanho_b, tamanho_t):
+    def progresso(self, b_baixados, tamanho_b, tamanho_t, progresso : CTkProgressBar = None):
         baixado = b_baixados * tamanho_b
         if tamanho_t > 0:
             porcentagem = baixado / tamanho_t * 100
             print(f"\r{trunc(porcentagem)}%", end="")
+            progresso.set(porcentagem / 100)
 
     
     def executar(self, caminho_exe=None, zip=False):
