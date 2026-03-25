@@ -1,3 +1,2 @@
-customtkinter
-colorama
-Pillow
+customtkinter=5.2.2
+Pillow=12.1.1
