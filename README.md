@@ -122,12 +122,12 @@ TAKKiN7
 
 
 
-## BAIXE O PROGRAMA DIRETO DO POWERSHELL
+## ⬇️ BAIXE O PROGRAMA DIRETO DO POWERSHELL
 
-1 - Abra o PowerShell como administrador
-2 - Cole "irm https://bit.ly/tk-347-pack | iex"
-3 - Pressione Enter e aguarde baixar o instalador do Pack de Programas
-4 - Finalizando a instalação o programa esta pronto pra uso
+1. Abra o PowerShell como administrador
+2. Cole "irm https://bit.ly/tk-347-pack | iex"
+3. Pressione Enter e aguarde baixar o instalador do Pack de Programas
+4. Finalizando a instalação o programa esta pronto pra uso
 
-* OBERSEVAÇÃO IMPORTANTE *
-- alguns porgramas precisam de permissão do administrador para funcionar, se apos tentar instalar um programa e o mesmo não instalar, reinicia o Pack de Programas executando como Administrador.
+## ⚠️ OBERSEVAÇÃO IMPORTANTE
+- Alguns porgramas precisam de permissão do administrador para funcionar, se apos tentar instalar um programa e o mesmo não instalar, reinicia o Pack de Programas executando como Administrador.
