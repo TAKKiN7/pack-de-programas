@@ -7,6 +7,7 @@ from colorama import Fore
 import zipfile
 from tkinter import messagebox as msg
 from customtkinter import CTkProgressBar
+import ctypes
 
 # caminho : Path = Path.cwd() / "Instaladores"
 # caminho.mkdir(exist_ok=True)
@@ -74,7 +75,18 @@ class Download:
             caminho_exe : Path = Path(caminho_novo)
 
         try:
-            subprocess.run([caminho_exe])
+            res = ctypes.windll.shell32.ShellExecuteW(
+                None,
+                "runas",
+                rf"{caminho_exe}",
+                None,
+                None,
+                1
+            )
+            if res <= 32:
+                raise FileNotFoundError("Erro ao executar o arquivo.")
+            else:
+                pass
         except FileNotFoundError:
             try:
                 caminho_txt = str(caminho_exe)

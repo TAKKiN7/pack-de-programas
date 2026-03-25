@@ -133,17 +133,17 @@ class VPNFrame(CTkFrame):
         button.place(relwidth=.155)
     
 
-    def baixar2(self, nome_exe=None, label : CTkLabel = None):
+    def baixar2(self, nome_exe=None, label : CTkLabel = None, zip = None):
 
-        caminho = downloader.baixar(nome=nome_exe, progresso=label)
+        caminho = downloader.baixar(nome=nome_exe, progresso=label, zip=zip)
 
         label.place_forget()
 
-        downloader.executar(caminho)
+        downloader.executar(caminho, zip=zip)
 
 
 
-    def baixar(self, nome_exe=None):
+    def baixar(self, nome_exe=None, zip=False):
         
   
         progressoL : CTkProgressBar = CTkProgressBar(self, mode="determinate", fg_color="BLACK", bg_color="BLACK", border_color="WHITE", border_width=2,
@@ -153,7 +153,7 @@ class VPNFrame(CTkFrame):
 
 
 
-        thread = Thread(target=self.baixar2, args=(nome_exe, progressoL))
+        thread = Thread(target=self.baixar2, args=(nome_exe, progressoL, zip))
         thread.start()
 
     
