@@ -51,9 +51,15 @@ class Download:
             print("Executavel ja existe")
             return caminho_exe
 
-        print("Iniciando download")
-        urllib.request.urlretrieve(link, caminho_exe, reporthook=lambda b_baixados, tamanho_b, tamanho_t: self.progresso(b_baixados, tamanho_b, tamanho_t, progresso))
-        print(self.cores["g"], "\nDownload concluido", self.cores["reset"])
+        for tentativa in range(3):
+            try:
+                print("Iniciando download")
+                urllib.request.urlretrieve(link, caminho_exe, reporthook=lambda b_baixados, tamanho_b, tamanho_t: self.progresso(b_baixados, tamanho_b, tamanho_t, progresso))
+            except:
+                print(self.cores["r"], "\nErro ao baixar o arquivo", self.cores["reset"])
+            else:
+                print(self.cores["g"], "\nDownload concluido", self.cores["reset"])
+                break
 
         return caminho_exe
 
