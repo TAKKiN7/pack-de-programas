@@ -8,6 +8,10 @@ import zipfile
 from tkinter import messagebox as msg
 from customtkinter import CTkProgressBar
 import ctypes
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from time import sleep as pause
 
 # caminho : Path = Path.cwd() / "Instaladores"
 # caminho.mkdir(exist_ok=True)
@@ -110,5 +114,29 @@ class Download:
         txt : str = "irm https://get.activated.win | iex"
         subprocess.run(["powershell", "-Command", txt])
 
+
+    
+
+    def baixar_dll(self, progresso : CTkProgressBar = None):
+
+        options = Options()
+        options.add_argument("--headless")
+
+        driver = webdriver.Chrome(options=options)
+
+        driver.get("https://drive.google.com/uc?export=download&id=18Q4_y9b3ZB5_wqPmyqgC3QO14MmKrzIu")
+
+        inputs = driver.find_elements(By.TAG_NAME, "input")
+
+        for input in inputs:
+            if input.get_attribute("type") == "submit":
+                input.click()
+                break
+
+        pause(5)
+
+        progresso.place_forget()
+        msg.showinfo("Sucesso", "DLL baixada e enviada para a pasta Downloads!")
+        
 
 downloader : Download = Download()

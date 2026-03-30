@@ -19,7 +19,7 @@ class AtivacaoFrame(CTkFrame):
         self.button_voltar()
         #self.button_reloader()
         self.button_mas()
-        #self.button_toolkit()
+        self.button_drive_booster()
 
 
         self.place(relx=0, rely=0, relwidth=1, relheight=1)
@@ -80,15 +80,15 @@ class AtivacaoFrame(CTkFrame):
         chrome_button.place(relx=.34, rely=.87, relwidth=.155, relheight=.06)
     
 
-    def button_toolkit(self):
-        img_normal = Image.open(self.caminho / "toolkit_normal.png")
+    def button_drive_booster(self):
+        img_normal = Image.open(self.caminho / "drive_booster_normal.png")
         imagem_normal = CTkImage(img_normal, size=(130, 36))
 
-        img_selected = Image.open(self.caminho / "toolkit_selected.png")
+        img_selected = Image.open(self.caminho / "drive_booster_selected.png")
         imagem_selected = CTkImage(img_selected, size=(130, 36))
 
-        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#DADA5C", hover_color="#DADA5C", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
-                                              command=self.antivirus_info)
+        chrome_button : CTkButton = CTkButton(self, text="", fg_color="#665155", hover_color="#665155", bg_color="BLACK", corner_radius=0, border_color="BLACK", border_width=2, image=imagem_normal,
+                                              command=self.baixar_dll)
         
         chrome_button.bind("<Enter>", lambda event: self.button_selected(event, chrome_button, imagem_selected))
         chrome_button.bind("<Leave>", lambda event: self.button_normal(event, chrome_button, imagem_normal))
@@ -118,17 +118,18 @@ class AtivacaoFrame(CTkFrame):
         button.place(relwidth=.155)
     
 
-    def baixar2(self, nome_exe=None, label : CTkLabel = None):
+    def baixar2(self, nome_exe=None, label : CTkLabel = None, zip = None):
 
-        caminho = downloader.baixar(nome=nome_exe, progresso=label)
+        caminho = downloader.baixar(nome=nome_exe, progresso=label, zip=zip)
 
         label.place_forget()
 
-        downloader.executar(caminho)
+
+        downloader.executar(caminho, zip=zip)
 
 
 
-    def baixar(self, nome_exe=None):
+    def baixar(self, nome_exe=None, zip=False):
         
   
         progressoL : CTkProgressBar = CTkProgressBar(self, mode="determinate", fg_color="BLACK", bg_color="BLACK", border_color="WHITE", border_width=2,
@@ -138,9 +139,20 @@ class AtivacaoFrame(CTkFrame):
 
 
 
-        thread = Thread(target=self.baixar2, args=(nome_exe, progressoL))
+        thread = Thread(target=self.baixar2, args=(nome_exe, progressoL, zip))
         thread.start()
     
+
+
+    def baixar_dll(self):
+        progressoL : CTkProgressBar = CTkProgressBar(self, mode="indeterminate", fg_color="BLACK", bg_color="BLACK", border_color="WHITE", border_width=2,
+                                                     progress_color="GREEN")
+        progressoL.start()
+        progressoL.place(relx=.0, rely=.97, relwidth=1, relheight=.03)
+
+
+        thread = Thread(target=downloader.baixar_dll, args=(progressoL,)).start()
+
 
     def antivirus_info(self):
         msg.showwarning("Aviso", "Desative o antivírus antes de executar esse ativador")

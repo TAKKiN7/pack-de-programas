@@ -6,6 +6,8 @@ links = {
 # Ativadores
     # Tem que ver isso ai
 
+    "dll" : "https://www.dropbox.com/scl/fi/gv1hehg7h1uqxqoi04xp1/dll_pro.zip?rlkey=g9mvwda0bminilgzcu13731nd&st=sd569zj2&dl=1",
+
 # Codec
     "k_lite" :            "https://www.dropbox.com/scl/fi/z05shzyep2q9l1eclqxqx/K-Lite_Codec_Pack_1930_Mega.exe?rlkey=2pwhoqffy5c329ibdrlhni3jt&st=1xs69bwh&dl=1",
     "quick_time" :        "https://www.dropbox.com/scl/fi/tmwo4m98u2yw8cuo6hmgw/QuickTime_V779.exe?rlkey=xg2qm47xv2q1jxd5ycqofipwl&st=mwbhxcju&dl=1",
