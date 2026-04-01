@@ -13,6 +13,10 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from time import sleep as pause
 
+from tkinter import filedialog
+import os
+
+
 # caminho : Path = Path.cwd() / "Instaladores"
 # caminho.mkdir(exist_ok=True)
 
@@ -119,6 +123,7 @@ class Download:
 
     def baixar_dll(self, progresso : CTkProgressBar = None):
 
+        #msg.showinfo("Aviso", "O arquivo de crack do Driver Booster é considerado um arquivo perigoso por alguns antivírus,\npara que o download seja realizado com sucesso é necessário desativar o antivírus.")
         options = Options()
         options.add_argument("--headless")
 
@@ -135,8 +140,28 @@ class Download:
 
         pause(5)
 
+        caminho = Path.home() / "Downloads"
+        caminho_dll = caminho / "dll_pro.zip"
+
+        if not caminho_dll.is_file():
+            msg.showerror("Erro", "Desative o antivírus e tente novamente.")
+            progresso.place_forget()
+            return
+                
+
+        with zipfile.ZipFile(caminho_dll, "r") as zip:
+            zip.extractall(caminho)
+
         progresso.place_forget()
-        msg.showinfo("Sucesso", "DLL baixada e enviada para a pasta Downloads!")
-        
+
+        dll = caminho / "dll_pro" / "dll_pro.dll"
+
+        if not dll.is_file():
+            msg.showerror("Erro", "Arquivo DLL não encontrado. Desative o antivírus e tente novamente.")
+            return 
+
+        caminho_dll_destino = filedialog.askdirectory(title="Selecione a pasta do Drive Booster")
+        os.rename(dll, Path(caminho_dll_destino) / "dll_pro.dll")
+
 
 downloader : Download = Download()
