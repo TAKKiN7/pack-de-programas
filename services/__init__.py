@@ -11,6 +11,9 @@ import ctypes
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+
+
+
 from time import sleep as pause
 
 from tkinter import filedialog
@@ -161,7 +164,7 @@ class Download:
             return 
 
         caminho_dll_destino = filedialog.askdirectory(title="Selecione a pasta do Drive Booster")
-        os.rename(dll, Path(caminho_dll_destino) / "dll_pro.dll")
+        os.rename(dll, Path(caminho_dll_destino) / "Version.dll")
 
 
 downloader : Download = Download()
